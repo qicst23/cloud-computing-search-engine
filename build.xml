@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+		<project name="Final Project" default="build" basedir=".">
+	    <property name="shared.root" location="${basedir}"/>
+	    <property name="file.separator" location="/"/>
+	    <property name="project.root" location="${basedir}"/>
+	    <property name="build.dir" location="${project.root}"/>
+	    <property name="build.target.dir" location="${project.root}${file.separator}target"/>
+	    <property name="web-inf.dir" location="${build.target.dir}${file.separator}WEB-INF"/>
+	    <property name="classes.dir"     location="${web-inf.dir}${file.separator}classes"/>
+	    <property name="web-inf.lib.dir" location="${web-inf.dir}${file.separator}lib"/>
+	    <property name="test-classes.dir" location="${build.target.dir}${file.separator}test${file.separator}classes"/>
+	    <property name="test-lib.dir"     location="${build.target.dir}${file.separator}test${file.separator}lib"/>
+	    <property name="src.main.dir"  location="${build.dir}${file.separator}src${file.separator}"/>
+	    <property name="inputlib.dir"  location="${shared.root}${file.separator}lib"/>
+	    <property name="src.test.dir"  location="${build.dir}${file.separator}src${file.separator}test"/>
+	    <property name="resources.dir" location="${build.dir}${file.separator}resources"/>
+	    <property name="conf.dir"      location="${build.dir}${file.separator}conf"/>
+
+			<target name="compile-storage" description="Compiles the Storage DHT">
+				        <mkdir dir="${classes.dir}"/>
+				        <javac target="1.6" source="1.6" srcdir="src/storage" destdir="${classes.dir}" debug="on" deprecation="off" optimize="on" includeAntRuntime="no">
+				            <classpath>
+				                <fileset dir="${inputlib.dir}">
+				                    <include name="*.jar"/>
+				                </fileset>
+				            </classpath>
+				        </javac>
+				    </target> 
+			
+	    <target name="compile-crawler" depends="compile-storage" description="Compiles the crawler">
+	        <mkdir dir="${classes.dir}"/>
+	        <javac target="1.6" source="1.6" srcdir="src/crawler" destdir="${classes.dir}" debug="on" deprecation="off" optimize="on" includeAntRuntime="no">
+	            <classpath>
+	                <fileset dir="${inputlib.dir}">
+	                    <include name="*.jar"/>
+	                </fileset>
+	            </classpath>
+	        </javac>
+	    </target> 
+			
+			 <target name="compile-indexer" depends="compile-storage" description="Compiles the indexer inputwriter">
+				        <mkdir dir="${classes.dir}"/>
+				        <javac target="1.6" source="1.6" srcdir="src/indexer:src/org" destdir="${classes.dir}" debug="on" deprecation="off" optimize="on" includeAntRuntime="no">
+				            <classpath>
+				                <fileset dir="${inputlib.dir}">
+				                    <include name="*.jar"/>
+				                	<include name="lib/*"/>
+				                </fileset>
+				            </classpath>
+				        </javac>
+				    </target> 
+
+			
+	    <target name="compile-tests" depends="compile-storage, compile-crawler" description="Compiles JUnit tests">
+	      <mkdir dir="${test-classes.dir}"/>
+	      <javac target="1.6" source="1.6" srcdir="${src.test.dir}${file.separator}" destdir="${test-classes.dir}" debug="on" deprecation="off" optimize="on" includeAntRuntime="no">
+		<classpath>
+		  <pathelement path="${classes.dir}" />
+		  <fileset dir="${inputlib.dir}">
+		    <include name="*.jar"/>
+		  </fileset>
+		</classpath>
+	      </javac>
+	    </target>
+	    
+	    <target name="test" depends="compile-tests,compile-crawler" description="Run tests">
+	      <java failonerror="true" fork="true" classname="junit.textui.TestRunner">
+	        <classpath>
+	          <pathelement location="${test-classes.dir}"/>
+	          <pathelement location="${classes.dir}"/>
+	           <fileset dir="${inputlib.dir}">
+	               <include name="*.jar"/>
+	           </fileset>
+	        </classpath>
+	        <arg value="test.edu.upenn.cis455.RunAllTests"/>
+	      </java>
+	    </target>
+	  
+	    <target name="clean" description="Deletes all the compiled files">
+	        <delete dir="${build.target.dir}"/>
+	        <delete file="storage.jar"/>
+	    	<delete file="crawler.jar"/>
+	        <delete file="servlet.war"/>
+	    	<delete file="indexer.jar"/>
+	    </target>
+	    
+			<target name="storage.jar" depends="compile-storage" description="Makes the JAR file for the DHT storage">
+			        <delete file="storage.jar"/>
+			        <jar destfile="storage.jar" update="true">
+			            <fileset dir="${classes.dir}">
+			                <include name="**/*.class"/>
+			            </fileset>
+			        </jar>
+			    </target>
+			
+			<target name="crawler.jar" depends="compile-crawler" description="Makes the JAR file for the crawler">
+						        <delete file="crawler.jar"/>
+						        <jar destfile="crawler.jar" update="true">
+						            <fileset dir="${classes.dir}">
+						                <include name="**/*.class"/>
+						            </fileset>
+						        </jar>
+						    </target>
+						
+			<target name="indexer.jar" depends="compile-indexer" description="Makes indexer JAR file">
+						        <delete file="indexer.jar"/>
+						        <jar destfile="indexer.jar" update="true">
+						            <fileset dir="${classes.dir}">
+						                <include name="**/*.class"/>
+						            </fileset>
+						        </jar>
+						    </target>
+			
+	    <target name="build" depends="crawler.jar, storage.jar, indexer.jar">
+	    </target>
+
+	    <target name="pack" description="Create an archive for submission">
+	      <zip destfile="submit-final-project.zip">
+	        <zipfileset dir="." excludes="target/**,examples/**,**/*.class,submit-hw3.zip,servlet.war,youtube.jar"/>
+	      </zip>
+	    </target>
+
+	</project>

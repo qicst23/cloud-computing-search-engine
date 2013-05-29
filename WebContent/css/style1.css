@@ -1,0 +1,174 @@
+body{
+
+background-color: #111111;
+font-size:17px;
+line-height:25px;
+color:#fff;
+/*color:#f4ebd2;*/
+font-family: 'Cantora One', sans-serif;
+text-align:center;
+-webkit-font-smoothing: antialiased; text-shadow: 0px 1px black;
+}
+
+
+a, section:hover{
+color:#e9950c;
+text-decoration:none;
+}
+
+.main{
+margin-top:135px;
+}
+
+.main h1{
+font-size:50px;
+margin:20px 0px;
+}
+
+section{
+margin:20px 4px;
+width: 55px;
+height: 40px;
+padding:16px 7px 20px 8px;
+  display:inline-block;
+  text-align: center;
+  margin-top:10px;
+  border-radius:5px;
+  box-shadow: 0 1px 4px
+     rgba(0, 0, 0, 0.3), 0 0 40px
+     rgba(0, 0, 0, 0.1) inset;
+}
+
+/*Use styling of checkbox*/
+.red, .red:active{
+background:#D11919;
+}
+.green, .green:active{
+background:#006B24;
+}
+.black, .black:active{
+background:#111111;
+}
+.orange, .orange:active{
+  background: #D16319;
+}
+.purple, .purple:active{
+background:#A300A3;
+}
+
+span{
+  color: #D6D6D9;
+}
+
+
+/* Modal */
+
+.modal-header{
+    padding-top:7px;
+    padding-bottom: 7px;
+}
+
+/*---------------------------Search Form -----------------------------*/
+
+
+  #search-form h2 {
+      color: #fff;
+      text-shadow: 0 2px 6px rgba(0,0,0,.2);
+  }
+
+  #search-form form {
+      margin: 35px 0 0 0;
+  }
+
+  #search-form input {
+      padding: 8px 20px;
+      width: 400px;
+
+    font-family: 'Cantora One', sans-serif;
+    font-size: 20px;
+    border: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+     -moz-box-shadow:
+        0 5px 5px 0 rgba(0,0,0,.1) inset,
+        0 2px 6px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow:
+        0 5px 5px 0 rgba(0,0,0,.1) inset,
+        0 2px 6px 0 rgba(0,0,0,.2);
+    box-shadow:
+        0 5px 5px 0 rgba(0,0,0,.1) inset,
+        0 2px 6px 0 rgba(0,0,0,.2);
+}
+
+.success-message {
+    margin: 35px 0 0 0;
+    color: #54a8c0;
+}
+
+.error-message {
+    margin: 15px 0 0 0;
+    color: #ff7f6b;
+}
+
+/*---------------------------End Search Form -----------------------------*/
+
+/* Footer */
+
+footer{
+margin-top:120px;
+margin-left: -45px;
+}
+
+.attr{
+text-align:right;
+}
+
+/* check box*/
+
+input[type="checkbox"] {
+    display:none;
+
+}
+
+label {
+    display:inline-block;
+    vertical-align:middle;
+    width:18px;
+    height:20px;
+    margin: 0px 4px 0 0;
+    background:url(../img/check.png) 1px top no-repeat;
+    opacity: 0.3;
+}
+
+/* check box effect*/
+input[type="checkbox"]:checked + label {
+    background:url(../img/check.png) -18px top no-repeat;
+    opacity :1;
+
+}
+
+     /*-----------------test-----------------*/
+.btn{
+   padding: 7px 10px 6px 10px;
+   margin-left: -2px;
+    border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background-image: none !important;
+  font-size: 22px;
+}
+
+
+
+#myModal{
+  *{
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
+    text-shadow: none !important;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+}

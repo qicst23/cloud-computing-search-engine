@@ -1,5 +1,6 @@
 /**
- * @author Yayang Tian - yaytian@cis.upenn.edu
+ * @author Yayang Tian
+ * http://cis.upenn.edu/~yaytian
  */
 package web;
 
@@ -67,7 +68,7 @@ import storage.Result;
 
 /**
  * APIs includes Yahoo, Amazon, YouTube, Wiki, eBay, Yelp, MaxMind, Google Map
- * @author Alantyy
+ * @author Yayang
  *
  */
 public class APIHelper {

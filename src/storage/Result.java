@@ -1,8 +1,10 @@
+/**
+ * @author Yayang Tian - yaytian@cis.upenn.edu
+ */
 package storage;
 
 import com.sleepycat.persist.model.Persistent;
 
-/** @author CIS455 Team Globus */
 @Persistent
 public class Result {
 	String url = "";

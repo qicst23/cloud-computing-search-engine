@@ -1,3 +1,7 @@
+/**
+ * @author Yayang Tian
+ * http://cis.upenn.edu/~yaytian
+ */
 package web;
 
 public class AmazonResult {

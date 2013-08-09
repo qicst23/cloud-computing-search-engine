@@ -67,7 +67,7 @@ import storage.Result;
 
 /**
  * APIs includes Yahoo, Amazon, YouTube, Wiki, eBay, Yelp, MaxMind, Google Map
- * @author Alantyy
+ * @author Yayang
  *
  */
 public class APIHelper {

@@ -19,8 +19,8 @@ import storage.RIEntry;
 import storage.RIInfo;
 
 /**
- * @author cis455
- *
+ * @author Yayang Tian
+ * http://cis.upenn.edu/~yaytian
  */
 public class RIAfterwards {
 	protected static ContentClient contentClient = null;

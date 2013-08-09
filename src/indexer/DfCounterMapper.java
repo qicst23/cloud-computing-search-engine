@@ -13,8 +13,8 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 /**
- * @author cis455
- *
+ * @author Yayang Tian
+ * http://cis.upenn.edu/~yaytian
  */
 public class DfCounterMapper extends Mapper<Object, Text, Text, IntWritable>{
 

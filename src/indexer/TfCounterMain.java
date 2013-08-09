@@ -13,8 +13,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
 /**
- * @author cis455
- *
+ * @author Yayang Tian
+ * http://cis.upenn.edu/~yaytian
  */
 public class TfCounterMain {
 	  public static void main(String[] args) throws Exception {

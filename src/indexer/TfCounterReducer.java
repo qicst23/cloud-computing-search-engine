@@ -10,8 +10,8 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 /**
- * @author cis455
- *
+ * @author Yayang Tian
+ * http://cis.upenn.edu/~yaytian
  */
 public class TfCounterReducer extends Reducer<Text,IntWritable,Text,IntWritable> {
 	private IntWritable result = new IntWritable();

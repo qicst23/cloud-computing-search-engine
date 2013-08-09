@@ -12,8 +12,8 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 
 /**
- * @author cis455
- *
+ * @author Yayang Tian
+ * http://cis.upenn.edu/~yaytian
  */
 public class TfCounterMapper  extends Mapper<Object, Text, Text, IntWritable>{
 

@@ -14,8 +14,8 @@ import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.tartarus.snowball.SnowballStemmer;
 
 /**
- * @author cis455
- *
+ * @author Yayang Tian
+ * http://cis.upenn.edu/~yaytian
  */
 public class RIMapper extends Mapper<Object, Text, Text, Text>{
 	private Text outKey = new Text();

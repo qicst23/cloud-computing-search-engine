@@ -12,8 +12,8 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 /**
- * @author cis455
- *
+ * @author Yayang Tian
+ * http://cis.upenn.edu/~yaytian
  */
 public class RIReducer extends Reducer<Text, Text, Text, Text> {
 	private Text outKey = new Text();

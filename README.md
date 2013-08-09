@@ -25,7 +25,7 @@ A Google style web search engine computing Hadoop MapReduce on Amazon EC2 consis
 
 ## 
 ## _Snapshots_
-![index.html](Snapshots/index.jpg)
-![search.html](Snapshots/search.jpg)
-![video.html](Snapshots/video.jpg)
-![image.html](Snapshots/image.jpg)
+![index.html](Snapshots/index.png)
+![search.html](Snapshots/search.png)
+![video.html](Snapshots/video.png)
+![image.html](Snapshots/image.png)

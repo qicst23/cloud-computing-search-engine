@@ -22,3 +22,10 @@ A Google style web search engine computing Hadoop MapReduce on Amazon EC2 consis
 ## _About_
 * Course: `CIS 555, Internet & Web Systems, Spring 2013, University of Pennsylvania`
 * Teamwork: `Yayang Tian, Michael Collis, Angela Wu, Krishna Choksi`
+
+## 
+## _Snapshots_
+![index.html](Snapshots/index.jpg)
+![search.html](Snapshots/search.jpg)
+![video.html](Snapshots/video.jpg)
+![image.html](Snapshots/image.jpg)

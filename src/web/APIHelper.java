@@ -1,5 +1,8 @@
+/**
+ * @author Yayang Tian
+ * http://cis.upenn.edu/~yaytian
+ */
 package web;
-
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -78,7 +81,7 @@ public class APIHelper {
 	 */
 	public static ArrayList<YouTubeResult> searchYouTube(String keyword) throws IOException, ServiceException{
 		ArrayList<YouTubeResult> results = new ArrayList<YouTubeResult>();
-		StringBuffer apiResult = new StringBuffer();		
+		StringBuffer apiResult = new StringBuffer();
 
 
 		YouTubeService service = new YouTubeService("Yayang Tian", "AI39si4BMI10-cEQjlaTcmFxU-1AwJJW86R-Ocfra19KIbqnVG7K18vnN0_5XUrrWEObNa69LIqmkie5r4z4bo-XsfU-mfz3Kg");
@@ -166,7 +169,7 @@ public class APIHelper {
 
 		AmazonRequestsHelper helper;
 		try {
-			helper = AmazonRequestsHelper.getInstance(endPoint, accessKey, secretKey);				
+			helper = AmazonRequestsHelper.getInstance(endPoint, accessKey, secretKey);
 		}catch (Exception e){
 			e.printStackTrace();
 			return null;
@@ -187,7 +190,7 @@ public class APIHelper {
 
 
 
-		// sign the request 
+		// sign the request
 		requestURL = helper.sign(params);      System.out.println(requestURL);
 
 		//		return null;
@@ -217,14 +220,14 @@ public class APIHelper {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
 		try {
-			DocumentBuilder builder = factory.newDocumentBuilder();	
+			DocumentBuilder builder = factory.newDocumentBuilder();
 
 			// Here is the doc xml tree
 			Document doc = builder.parse(requestURL);
 			if(doc == null)return null;
 
 			// at most 8 results displayed
-			int total = 8; 
+			int total = 8;
 			NodeList itemDom = doc.getElementsByTagName("Item");
 			int numResults = itemDom.getLength();
 			if(numResults < 8){
@@ -269,7 +272,7 @@ public class APIHelper {
 	}
 
 
-	/**************************  Yahoo  **************************************** 
+	/**************************  Yahoo  ****************************************
 	 * API for Yahoo
 	 * @param keyword
 	 * @return
@@ -279,7 +282,7 @@ public class APIHelper {
 
 		String consumerKey = "dj0yJmk9TzZxelZHOTRhaFdaJmQ9WVdrOWIzRm5lV3N6TjJzbWNHbzlOalkzTXpNNU5EWXkmcz1jb25zdW1lcnNlY3JldCZ4PTkx";
 		String consumerSecret = "7e4d7636c65033d5db770bd42da4d29e60d24c43";
-		String json = null; 
+		String json = null;
 
 		// Consumer
 		OAuthConsumer consumer = new DefaultOAuthConsumer(consumerKey, consumerSecret);
@@ -341,13 +344,13 @@ public class APIHelper {
 				else if(key.equals("abstract"))snippet = value.replaceAll("\\\\/", "/");
 				//					score = getYahooScore(query, title, snippet);
 				score = score - 0.01D;
-				//					
+				//
 				System.out.println("[url]\t" + url);
 				System.out.println("[title]\t" + title);
 				System.out.println("[abstract]\t" + snippet);
 				//					System.out.println("[score]\t" + score);
-				//					
-				//					
+				//
+				//
 				yResults.add(new Result(url, title, snippet, score, 2));
 			}
 		}
@@ -358,11 +361,11 @@ public class APIHelper {
 
 
 
-	/**************************  Ebay  **************************************** 
+	/**************************  Ebay  ****************************************
 	 * API for Ebay
 	 * @param keyword
 	 * @return
-	 * @throws IOException 
+	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 //	 */
 	public static String searchEbay(String keyword){
@@ -427,7 +430,7 @@ public class APIHelper {
 	}
 
 
-	/**************************  Yelp  **************************************** 
+	/**************************  Yelp  ****************************************
 	 * API for Yelp
 	 * @param keyword
 	 * @throws UnsupportedEncodingException
@@ -458,10 +461,10 @@ public class APIHelper {
 		ArrayList<YelpResult> yelpResults = new ArrayList<YelpResult>();
 
 		// argumensts
-		String name = "-"; 
+		String name = "-";
 		String snippetText = "";
 		String snippetImage = "";
-		String distance = ""; 
+		String distance = "";
 		String ratingImage = "";
 		String url = "";
 
@@ -499,7 +502,7 @@ public class APIHelper {
 	/**************************  Helper Functions  *******************/
 	public static String firstChildTag(Element doc, String tag, int i){
 		NodeList tagList = doc.getElementsByTagName(tag);
-		if(tagList == null || tagList.getLength() == 0) 
+		if(tagList == null || tagList.getLength() == 0)
 			return "-";
 
 		return tagList.item(0).getFirstChild().getTextContent();
@@ -507,7 +510,7 @@ public class APIHelper {
 
 	public static String lastChildTag(Element doc, String tag, int i){
 		NodeList tagList = doc.getElementsByTagName(tag);
-		if(tagList == null || tagList.getLength() == 0) 
+		if(tagList == null || tagList.getLength() == 0)
 			return "-";
 
 		return tagList.item(0).getLastChild().getTextContent();

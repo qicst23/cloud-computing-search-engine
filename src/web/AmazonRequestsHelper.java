@@ -2,14 +2,14 @@
 /**********************************************************************************************
  * Copyright 2009 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file 
+ * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file
  * except in compliance with the License. A copy of the License is located at
  *
  *       http://aws.amazon.com/apache2.0/
  *
  * or in the "LICENSE.txt" file accompanying this file. This file is distributed on an "AS IS"
  * BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under the License. 
+ * License for the specific language governing permissions and limitations under the License.
  *
  * ********************************************************************************************
  *
@@ -55,21 +55,21 @@ public class AmazonRequestsHelper {
      * All strings are handled as UTF-8
      */
     private static final String UTF8_CHARSET = "UTF-8";
-    
+
     /**
      * The HMAC algorithm required by Amazon
      */
     private static final String HMAC_SHA256_ALGORITHM = "HmacSHA256";
-    
+
     /**
      * This is the URI for the service, don't change unless you really know
      * what you're doing.
      */
     private static final String REQUEST_URI = "/onca/xml";
-    
+
     /**
      * The sample uses HTTP GET to fetch the response. If you changed the sample
-     * to use HTTP POST instead, change the value below to POST. 
+     * to use HTTP POST instead, change the value below to POST.
      */
     private static final String REQUEST_METHOD = "GET";
 
@@ -82,24 +82,24 @@ public class AmazonRequestsHelper {
 
     /**
      * You must provide the three values below to initialize the helper.
-     *  
+     *
      * @param endpoint          Destination for the requests.
      * @param awsAccessKeyId    Your AWS Access Key ID
      * @param awsSecretKey      Your AWS Secret Key
      */
     public static AmazonRequestsHelper getInstance(
-            String endpoint, 
-            String awsAccessKeyId, 
+            String endpoint,
+            String awsAccessKeyId,
             String awsSecretKey
     ) throws IllegalArgumentException, UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException
     {
         if (null == endpoint || endpoint.length() == 0)
             { throw new IllegalArgumentException("endpoint is null or empty"); }
-        if (null == awsAccessKeyId || awsAccessKeyId.length() == 0) 
+        if (null == awsAccessKeyId || awsAccessKeyId.length() == 0)
             { throw new IllegalArgumentException("awsAccessKeyId is null or empty"); }
-        if (null == awsSecretKey || awsSecretKey.length() == 0)   
+        if (null == awsSecretKey || awsSecretKey.length() == 0)
             { throw new IllegalArgumentException("awsSecretKey is null or empty"); }
-        
+
         AmazonRequestsHelper instance = new AmazonRequestsHelper();
         instance.endpoint = endpoint.toLowerCase();
         instance.awsAccessKeyId = awsAccessKeyId;
@@ -112,7 +112,7 @@ public class AmazonRequestsHelper {
 
         return instance;
     }
-    
+
     /**
      * The construct is private since we'd rather use getInstance()
      */
@@ -132,13 +132,13 @@ public class AmazonRequestsHelper {
         // The parameters need to be processed in lexicographical order, so we'll
         // use a TreeMap implementation for that.
         SortedMap<String, String> sortedParamMap = new TreeMap<String, String>(params);
-        
+
         // get the canonical form the query string
         String canonicalQS = this.canonicalize(sortedParamMap);
-        
-        // create the string upon which the signature is calculated 
-        String toSign = 
-            REQUEST_METHOD + "\n" 
+
+        // create the string upon which the signature is calculated
+        String toSign =
+            REQUEST_METHOD + "\n"
             + this.endpoint + "\n"
             + REQUEST_URI + "\n"
             + canonicalQS;
@@ -148,7 +148,7 @@ public class AmazonRequestsHelper {
         String sig = this.percentEncodeRfc3986(hmac);
 
         // construct the URL
-        String url = 
+        String url =
             "http://" + this.endpoint + REQUEST_URI + "?" + canonicalQS + "&Signature=" + sig;
 
         return url;
@@ -163,14 +163,14 @@ public class AmazonRequestsHelper {
     public String sign(String queryString) {
         // let's break the query string into it's constituent name-value pairs
         Map<String, String> params = this.createParameterMap(queryString);
-        
+
         // then we can sign the request as before
         return this.sign(params);
     }
 
     /**
      * Compute the HMAC.
-     *  
+     *
      * @param stringToSign  String to compute the HMAC over.
      * @return              base64-encoded hmac value.
      */
@@ -191,7 +191,7 @@ public class AmazonRequestsHelper {
 
     /**
      * Generate a ISO-8601 format timestamp as required by Amazon.
-     *  
+     *
      * @return  ISO-8601 format timestamp.
      */
     private String timestamp() {
@@ -205,7 +205,7 @@ public class AmazonRequestsHelper {
 
     /**
      * Canonicalize the query string as required by Amazon.
-     * 
+     *
      * @param sortedParamMap    Parameter name-value pairs in lexicographical order.
      * @return                  Canonical form of query string.
      */
@@ -234,7 +234,7 @@ public class AmazonRequestsHelper {
      * Percent-encode values according the RFC 3986. The built-in Java
      * URLEncoder does not encode according to the RFC, so we make the
      * extra replacements.
-     * 
+     *
      * @param s decoded string
      * @return  encoded string per RFC 3986
      */
@@ -254,7 +254,7 @@ public class AmazonRequestsHelper {
     /**
      * Takes a query string, separates the constituent name-value pairs
      * and stores them in a hashmap.
-     * 
+     *
      * @param queryString
      * @return
      */

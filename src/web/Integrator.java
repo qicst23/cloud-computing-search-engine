@@ -1,6 +1,8 @@
 /**
- * @author Yayang Tian - yaytian@cis.upenn.edu
+ * @author Yayang Tian
+ * http://cis.upenn.edu/~yaytian
  */
+
 package web;
 
 import indexer.IndexerCalculator;

@@ -1,12 +1,10 @@
 /**
- * 
+ * @author Yayang Tian
+ * http://cis.upenn.edu/~yaytian
  */
+
 package web;
 
-/**
- * @author Yayang Tian
- *
- */
 public class YelpResult {
 	String name = "-"; 
 	String snippetText = "";

@@ -1,12 +1,10 @@
 /**
- * 
+ * @author Yayang Tian
+ * http://cis.upenn.edu/~yaytian
  */
 package web;
 
-/**
- * @author Alantyy
- *
- */
+
 public class YahooJSON {
 	String data = "";
 	String clickurl = "";

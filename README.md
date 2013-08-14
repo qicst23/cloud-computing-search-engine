@@ -1,7 +1,8 @@
-MiniGoogle - Cloud Computing Search Egine
+Cloud Computing Search Engine - MiniGoogle
 =============================
 
 A Google style web search engine computing Hadoop MapReduce on Amazon EC2 consisting of crawler, indexer, PageRank, and UI.
+[Click Here to View Demo. ](http://globus-search.appspot.com)
 `Spring 2013`
 
 ## _Skills_

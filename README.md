@@ -9,8 +9,8 @@ A Google style web search engine computing Hadoop MapReduce on Amazon EC2 consis
     
     Language: Java
     Web: HTML, CSS, Servlet, JSP, jQuery, AJAX
-    Cloud: Hadoop, MapReduce, Amazon EC2, FreePastry
-    Database: Berkeley DB
+    Cloud: Hadoop, MapReduce, Amazon EC2, Amazon EMR, FreePastry
+    Database: Amazon S3, Berkeley DB
     
 
 ## _Contribution_
